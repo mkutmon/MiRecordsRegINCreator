@@ -39,6 +39,8 @@ public class Utils {
 				for(File file : mappingFiles) {
 					if (file.exists()) {
 						gdb.addIDMapper("idmapper-pgdb:" + file.getAbsolutePath());
+					} else {
+						System.err.println("Cannot find BridgeDb mapping file" + file.getName());
 					}
 				}
 				if(gdb.getSize() == 0) {
